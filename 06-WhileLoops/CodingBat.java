@@ -1,5 +1,5 @@
 public class CodingBat {
-
+    //took about 7 minutes
     public String frontTimes(String str, int n) {
 	String s = "";
 	if (str.length() > 3) {
@@ -14,7 +14,7 @@ public class CodingBat {
 	}
 	return answer;
     }
-
+    //took about 5 minutes
     public String stringBits(String str) {
 	String result = "";
 	int index = 0;
@@ -24,7 +24,7 @@ public class CodingBat {
 	}
 	return result;
     }
-
+    //took about 15 minutes
     public String stringYak(String str) {
 	int index = 0;
 	StringBuffer s = new StringBuffer(str);
@@ -39,7 +39,7 @@ public class CodingBat {
 	str = s.toString();
 	return str;
     }
-
+    //took about 7 minutes
     public int stringMatch(String a, String b) {
 	int i = 0;
 	int result = 0;
