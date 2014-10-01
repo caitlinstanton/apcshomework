@@ -1,5 +1,6 @@
 public class Shapes {
-    
+	
+    //took about 10 minutes
     public String tri1(int r) {
 	String result = "";
 	int row = r;
@@ -16,7 +17,8 @@ public class Shapes {
 	}
 	return result;
     }
-
+    
+    //took about 25 minutes
     public String tri2(int h) {
 	int counter = h;
 	int x = counter;
