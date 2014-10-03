@@ -1,5 +1,14 @@
 public class Shapes{
-
+	
+	//helper function
+  public String line(String c, int h){
+  	String s ="";
+  	for(int i=0; i<h; i++){
+  		s = s + c;
+  	}
+  	return s;
+  }
+  
   public String diamond(int h){
 	  String s = tri3((h+1)/2);
 	  int r;
@@ -13,5 +22,14 @@ public class Shapes{
 	    s = s + "\n";
 	  }    
     return s;
+    	//with helper function 
+    	/*
+    	for (r=0; r<height; r++){
+    		s = s + line(" ",height-r-1);
+    		s = s + line("*", 2*r+1);
+    		s = s + "\n";
+    	}
+    	*/
+    	}
   }
 }
