@@ -20,18 +20,20 @@ public class Driver {
 	w1 = new Warrior();
 	m1 = new Mage();
 	
-	m2 = m1;
+	//m2 = m1;
 	/* Can't convert instance of subclass to instance of superclass
            m2 = b1; */
 	/* Can't covert instance of one subclass to instance of another subclass
 	   m2 = w1; */
 
 	// Instances of a superclass may become instances of a subclass
-	b2 = m1;
-	b2 = m2;
-	b2 = new Warrior();
+	//b2 = m1;
+	//b2 = m2;
+	//b2 = new Warrior();
+
+	//b1.displayDetails();
+	m1.displayDetails();
     }
 
 
 }
-
