@@ -1,7 +1,8 @@
+
 public class Mage extends Basechar{
-    private int mana;
+    private int manna = 200;
 
     public int getManna(){
-	return mana;
+	return manna;
     }
 }
