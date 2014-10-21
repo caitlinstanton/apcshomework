@@ -4,9 +4,8 @@ import java.io.*;
 public class Mage extends BaseChar {
 
     Random thing = new Random();
-    Scanner userInput = new Scanner(System.in);
     
-    public String spell(BaseChar other){
+    public String spell(BaseChar other, String userInput){
 	if(userInput == "spell1" && r.nextInt(this.getACC()) > 20 ) {
 	    other.setHP(other.getHP() - 10);
 	    this.setMP(this.getMP() - 20);
