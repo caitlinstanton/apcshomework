@@ -18,39 +18,39 @@ public class Driver {
 	for (i=1;i<3;i=i+1) {
 	try{
 	    Thread.sleep(1000);
-	} catch(Exception e){}
+	} catch(Exception f){}
 	System.out.print(".");
 	}
         try{
 	    Thread.sleep(1000);
-	} catch(Exception e){}
+	} catch(Exception f){}
 	System.out.println(".");
 	try{
 	    Thread.sleep(1000);
-	} catch(Exception e){}
+	} catch(Exception f){}
 	System.out.print("You wake up in a forest. (Hint: The 'enter' button is your friend.)");
 	enter = in.nextLine();
         for (i=1;i<4;i=i+1) {
 	try{
 	    Thread.sleep(1000);
-	} catch(Exception e){}
+	} catch(Exception f){}
 	System.out.print(".");
 	}
 	try{
 	    Thread.sleep(1000);
-	} catch(Exception e){}
+	} catch(Exception f){}
 	System.out.print("Well, there are a lot of trees. I mean, it's a forest.");
 
 	enter = in.nextLine();
         for (i=1;i<4;i=i+1) {
 	try{
 	    Thread.sleep(1000);
-	} catch(Exception e){}
+	} catch(Exception f){}
 	System.out.print(".");
 	}
 	try{
 	    Thread.sleep(1000);
-	} catch(Exception e){}
+	} catch(Exception f){}
 
 	System.out.println("What?!?!?!?! A strange traveler in the woods?!?!?!?! FIGHT HIM?!?!?! Get to it, " + name + "!");
         enter = in.nextLine();
