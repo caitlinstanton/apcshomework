@@ -1,17 +1,16 @@
 import java.util.*;
 import java.io.*;
 
-public class Mage extends Basechar {
+public class Mage extends BaseChar {
 
     Random thing = new Random();
     Scanner userInput = new Scanner(System.in);
     
-    public String spell(Basechar other){
+    public String spell(BaseChar other){
 	if(userInput == "spell1" && r.nextInt(this.getACC()) > 20 ) {
 	    other.setHP(other.getHP() - 10);
 	    this.setMP(this.getMP() - 20);
 	    return(this + " shot a fireball at " + other);
-	   
 	}else if(userInput == "spell2" && r.nextInt(this.getACC()) > 0) {
 	    other.setHP(other.getHP - 10);
 	    this.setMP(this.getMP - 30);
@@ -24,6 +23,7 @@ public class Mage extends Basechar {
 	    this.setMP(this.getMP()-30);
 	    return "The spell fizzled and died";
 	}
+    }
 	
 
 }
