@@ -9,11 +9,11 @@ public class BaseChar{
     public BaseChar(int h, int m, int a, int d, int s, int ac, int c, String n, String w){
 	hp=h;
 	mp=m;
-	atk=r.nextInt(3)+a-1;
-	def=r.nextInt(4)+d-2;
-	spd=r.nextInt(2)+s-1;
-	acc=r.nextInt(10)+ac-5;
-	lck=r.nextInt(3)+c-1;
+	atk=a;
+	def=d;
+	spd=s;
+	acc=ac;
+	lck=c;
 	name=n;
 	weapon=w;
     }
