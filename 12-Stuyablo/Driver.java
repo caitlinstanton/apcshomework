@@ -11,13 +11,13 @@ public class Driver {
 	String spell;
 	int i; 
 	
-	int h = r.nextInt(13 - 7) + 7;
-	int mp = r.nextInt(13 - 7) + 7;
-	int a = r.nextInt(13 - 7) + 7;
-	int d = r.nextInt(13 - 7) + 7;
-	int s = r.nextInt(13 - 7) + 7;
-	int ac = r.nextInt(13 - 7) + 7;
-	int c = r.nextInt(13 - 7) + 7;
+	int h = 100;
+	int mp = 80;
+	int a = 0;
+	int d = 0;
+	int s = 0;
+	int ac = 0;
+	int c = 0;
 	String n = "STEVE";
 	String w = "air";
 	
