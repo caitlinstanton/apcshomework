@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 import java.io.*;  
 
 public class Driver {
@@ -8,6 +9,10 @@ public class Driver {
 	String enter; 
 	String spell; 
 	int i; 
+
+	Random rand = new Random();
+	int  m = rand.nextInt(3);
+	String mattack = Integer.toString(m);
 
 	System.out.println("Welcome, young traveler! What is your name?");
 	name = in.nextLine();
@@ -61,7 +66,15 @@ public class Driver {
 	while (mage.getHP() > 0 && monster.getHP() > 0) {
 	    spell = in.nextLine();
 	    System.out.println(mage.spell(monster, spell));
-	    
+	    if (mattack.equals("0") && monster.getACC() > 20) {
+	        monster.claws(mage); 
+	    }
+	    if (mattack.equals("1") && monster.getACC() > 20) {
+	        monster.teeth(mage); 
+	    }
+	    if (mattack.equals("2") && monster.getACC() > 40) {
+	        monster.wrath(mage);
+	    }
 	}
     }
 }
