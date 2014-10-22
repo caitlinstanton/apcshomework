@@ -8,21 +8,7 @@ public class Driver {
 	String enter; 
 	String spell; 
 	int i; 
-<<<<<<< HEAD
-	
-	int h = 100;
-	int mp = 80;
-	int a = 0;
-	int d = 0;
-	int s = 0;
-	int ac = 0;
-	int c = 0;
-	String n = "STEVE";
-	String w = "air";
-	
-=======
 
->>>>>>> origin/master
 	System.out.println("Welcome, young traveler! What is your name?");
 	name = in.nextLine();
 
