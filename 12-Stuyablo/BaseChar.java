@@ -33,6 +33,9 @@ public class BaseChar{
     public void setHP(int h){
         hp = h;
     }
+    public void increaseMP(int m){
+	mp=mp+m;
+    }
     public int getAtk(){
 	return atk;
     }
@@ -53,6 +56,9 @@ public class BaseChar{
     }
     public boolean isPoisoned(){
 	return poisonState;
+    }
+    public void makePoisoned() {
+	poisonState=true;
     }
     public String poison(){
 	if (!poisonState){
