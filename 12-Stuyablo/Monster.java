@@ -10,9 +10,9 @@ public class Monster extends BaseChar {
 
     public void claws(BaseChar other){
 	if (thing.nextInt(10) <= 8) {
-		int damage = 7;
-		System.out.println(this + " swiped at " + other);
-		System.out.println(other + " lost "+ damage+ " HP.");
+	    int damage = 10 + thing.nextInt(11);
+	    other.setHP(other.getHP() - damage);
+	    System.out.println(this + " swiped at " + other + ". " + other + " lost "+ damage+ " HP.");
 	    }
 	else {
 	    System.out.println("Claws did not reach target...");
@@ -21,9 +21,9 @@ public class Monster extends BaseChar {
 
     public void teeth(BaseChar other) {
 	if (thing.nextInt(10) < 8) {
-		int damage = 10;
-		System.out.println(this + " savagely bit "+ other);
-		System.out.println(other + " lost "+ damage+ " HP.");
+	    int damage = 15 + thing.nextInt(11);
+	    other.setHP(other.getHP() - damage);
+	    System.out.println(this + " savagely bit "+ other + ". " + other + " lost "+ damage+ " HP.");
 	    }
 	else {
 	    System.out.println(other + " was out of biting reach...");
@@ -32,11 +32,12 @@ public class Monster extends BaseChar {
 	
     public void wrath(BaseChar other) {
 	if (thing.nextInt(10) < 7) {
-		int damage = 14;
-		System.out.println(this + " howled into the moonlight, summoniong a great evil upon "+ other);
-		System.out.println(other + "lost "+ damage+ " HP.");
+	    int damage = 10 + thing.nextInt(11);
+	    other.setHP(other.getHP() - damage);
+	    System.out.println(this + " howled into the moonlight, summoniong a great evil upon " + other + ". " + other + " lost "+ damage+ " HP.");
 		if (thing.nextInt(2)== 1) {
 			System.out.println(other + " was poisoned!");
+			other.makePoisoned();
 		    }
 	    }
 	else {
