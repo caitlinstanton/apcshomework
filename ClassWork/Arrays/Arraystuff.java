@@ -34,8 +34,24 @@ public class Arraystuff {
 	return s;
     }
 
+    public int find(int n) {
+	int value = -1;
+	for (int i = 0; i < a.length; i++){
+	    if(a[i] == n){
+		value = i;
+	    }
+	}
+	return ( value);
+    }
+
+    /* public int maxVal(){
+
+       }*/
+
     public static void main(String[] args){
 	Arraystuff as = new Arraystuff();
 	System.out.println(as);
+	System.out.println(as.find(134));
     }
+    
 }
