@@ -39,13 +39,22 @@ public class Arraystuff {
     }
 
     public int find(int n) {
-	int value = -1;
-	for (int i = 0; i < a.length; i++){
+    	int value = -1;
+    	for (int i = 0; i < a.length; i++){
 	    if(a[i] == n){
 		value = i;
 	    }
 	}
-	return (value);
+	return value;
+    }
+    
+    public int find2(int n) {
+	for (int i = 0; i < a.length; i++){
+	    if(a[i] == n){
+		return i;
+	    }
+	}
+	return -1;
     }
 
     public int maxVal(){
