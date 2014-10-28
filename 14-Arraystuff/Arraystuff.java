@@ -67,12 +67,26 @@ public class Arraystuff {
 	return value;
     }
 
+    public int freq(int i) {
+	int counter = 0;
+	int answer = a[i];
+	int freq = 0;
+	while (counter < a.length) {
+	    if (a[counter] == a[i]){
+		freq = freq + 1;
+	    }
+	    counter++;
+	}
+	return freq;
+    }
+
     public static void main(String[] args){
 	Arraystuff as = new Arraystuff();
-	System.out.println(as);
-	System.out.println(as.find(134));
-	System.out.println(as.find(906));
-	System.out.println(as.maxVal());
+	//	System.out.println(as);
+	//	System.out.println(as.find(134));
+	//	System.out.println(as.find(906));
+	//	System.out.println(as.maxVal());
+	System.out.println(as.freq(17));
     }
     
 }
