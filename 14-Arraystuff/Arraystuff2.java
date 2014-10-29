@@ -126,6 +126,45 @@ public class Arraystuff2 {
 	return result;
     }
 
+    public boolean tripleUp(int[] nums) {
+    	for (int  i = 0; i < nums.length - 2; i++) {
+		if (nums[i+1] - nums[i] ==1 && nums[i+2] - nums[i+1] ==1 ) {
+			return true;
+     		}
+  	}
+  	return false;
+	}
+	
+public boolean canBalance(int[] nums) {
+	for (int i = 0; i < nums.length; i++){
+	    int frontTotal = 0;
+	    int backTotal = 0;
+	    for (int f = 0; f <= i; f++){
+		frontTotal = frontTotal + nums[f];
+	    }
+	    for (int b = i + 1; b < nums.length; b++){
+		backTotal = backTotal + nums[b];
+	    }
+	    if (frontTotal == backTotal){
+		return true;
+	    }
+	}
+	return false;
+}
+
+    public int[] seriesUp(int n) {
+        int listLength = (n * (n + 1)) / 2;
+	int[] result = new int[listLength];
+	int position = 0;
+	for (int i = 0;i <= n; i++){
+	    for (int x = 1; x < i+1; x++){
+		result[position] = x;
+		position = position + 1;
+	    }
+	}
+	return result;
+    }
+    
     public static void main(String[] args){
 	Arraystuff as = new Arraystuff();
 	//	System.out.println(as);
