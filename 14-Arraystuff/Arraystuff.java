@@ -67,6 +67,30 @@ public class Arraystuff {
 	return value;
     }
 
+    //I literally had no idea how to do this problem
+    //This is a solution I found off of the Internet and understand, but I definitely couldn't have gotten it myself
+    //in a reasonable time frame.
+    public int maxMirror(int[] nums) {
+	int length = nums.length;
+	int mirrorMax = 0;
+	for (int start = 0; start < length; start++) {
+	    int counter = 0;
+	    for (int end = length - 1; start + counter != length && end > -1; end--) {
+		if (nums[start + counter] == nums[end]) {
+		    counter++;
+		}
+		else {
+		    if (counter > 0) {
+			mirrorMax = Math.max(counter, mirrorMax);
+			counter = 0;
+		    }
+		}
+	    }
+	    mirrorMax = Math.max(counter, mirrorMax);
+	}
+	return mirrorMax;
+    }
+    
     public static void main(String[] args){
 	Arraystuff as = new Arraystuff();
 	//	System.out.println(as);
