@@ -9,15 +9,15 @@ public class Arraystuff2 {
     after initial assignment
     public final int final_example = 123;
     */
-    public Arraystuff(int n) {
+    public Arraystuff2(int n) {
 	rnd = new Random();
-	a = new int[100];
+	a = new int[10];
 	for (int i = 0; i < a.length; i++){
-	    a[i] = rnd.nextInt(150 - 75) + 75;
+	    a[i] = rnd.nextInt(20 - 0) + 0;
 	}
     }
 
-    public Arraystuff() {
+    public Arraystuff2() {
 	this(100);
     }
 
@@ -57,29 +57,27 @@ public class Arraystuff2 {
 	return -1;
     }
 
-    public int maxVal(){
+    public int maxVal(int[] a){
 	int value = a[0];
 	for (int i = 1; i < a.length; i++){
-	    if (value < a[i]){
+	    if (value <= a[i]){
 		value = a[i];
 	    }
 	}
 	return value;
     }
 
-    public int freq(int i) {
-	int counter = 0;
-	int answer = a[i];
-	int freq = 0;
-	while (counter < a.length) {
-	    if (a[counter] == a[i]){
-		freq = freq + 1;
+    public int freq(int n) {
+	int num = a[n];
+	int retnum = 0;
+	for (int i = 0;i<a.length;i++) {
+	    if (a[i] == num) {
+		retnum++;
 	    }
-	    counter++;
 	}
-	return freq;
+	return retnum;
     }
-
+    
     public int sum67(int[] nums) {
 	int sum = 0;
 	for (int i = 0; i < nums.length; i++){
@@ -102,7 +100,7 @@ public class Arraystuff2 {
 		number1 = number1 + 1;
 	    }
 	    if (nums[i] == 4) {
-		number4 = number 4 + 1;
+		number4 = number4 + 1;
 	    }
 	}
 	return (number1 > number4);
@@ -164,14 +162,34 @@ public boolean canBalance(int[] nums) {
 	}
 	return result;
     }
-    
+
+    public int mode() {
+	int pos = 0;
+	int index = 0;
+	for (int i = 0; i < a.length; i++) {
+	    if (freq(a[i]) > pos) {
+		pos = freq(a[i]);
+		index = 1;
+	    }
+	}
+	System.out.println(a[index]);
+	return pos;
+    }
+    /*	    
+	for (int i = 0; i < A.length; i++) {
+	    int value = A[i];
+	    frequency[i] = freq(value);
+	}
+	return(maxVal(frequency));
+    }
+    */	
     public static void main(String[] args){
-	Arraystuff as = new Arraystuff();
-	//	System.out.println(as);
+	Arraystuff2 as = new Arraystuff2();
+	System.out.println(as);
 	//	System.out.println(as.find(134));
 	//	System.out.println(as.find(906));
 	//	System.out.println(as.maxVal());
-	System.out.println(as.freq(17));
+	System.out.println(as.mode());
     }
     
 }
