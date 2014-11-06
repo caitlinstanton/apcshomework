@@ -175,14 +175,16 @@ public boolean canBalance(int[] nums) {
 	System.out.println(a[index]);
 	return pos;
     }
-    /*	    
+
+    public int fastMode() {
+	
 	for (int i = 0; i < A.length; i++) {
 	    int value = A[i];
 	    frequency[i] = freq(value);
 	}
 	return(maxVal(frequency));
     }
-    */	
+    
     public static void main(String[] args){
 	Arraystuff2 as = new Arraystuff2();
 	System.out.println(as);
