@@ -10,7 +10,11 @@ public class Driver{
 	try {
 	    ee.etest(55);
 	    System.out.println("OK");
-	} catch (Exception e) {
+	} catch (ArrayIndexOutOfBoundsException e) {
+	    System.out.println("Error-we got: " + e);
+	} catch (ArithmeticException e) {
+	    System.out.println("Arithmetic exception");
+        } catch (Exception e) {
 	    System.out.println("Error-we got: " + e);
 	}
 	System.out.println("After the exception");
