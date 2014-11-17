@@ -3,6 +3,15 @@ import java.io.*;
 
 public class Randomize {
 
+    /**
+       In order to create a javadoc, you use this commenting symbol.
+       Everything you write can be written in HTML Markup, like
+       <b>This is in bold</b>
+       or <a href="http://suy.edu>Stuy</a> for a link
+       Then just run this as javadoc fileName.java
+       and put the path directory in your URL bar to pull it up.
+    */
+
     //RANDOMIZING AN OBJECT OF ARRAYLIST
     /* by choosing a random element, removing it from the original arraylist, and 
        adding it to the end of the new arraylist */
