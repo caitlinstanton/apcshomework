@@ -1,29 +1,60 @@
 /**
- * Creates a word puzzle
+ * Creates a word search puzzle
  *
  */
+public class WordSearch{
 
-public class WordSearch {
-    
     private char[][] board;
 
-    public WordSearch (int r, int c) {
+    public WordSearch(int r, int c){
 	board = new char[r][c];
+	for (int i = 0; i < board.length; i++) {
+	    for (int j = 0; j < board[i].length; j++) {
+		board[i][j]='.';
+	    }
+	}
+				
     }
-
     public WordSearch(){
-        this(30,20);
+        this(20,30);
     }
 
     public String toString(){
-	String ans = "";
-	for (int i = 0; i < board.length; i++){
-	    for (int j = 0; j < board[i].length; j++){
-		board[i][j] = '.';
-		ans = ans + board[i][j];
+	String s = "";
+       	for (int i = 0; i < board.length; i++) {
+	    for (int j = 0; j < board[i].length; j++) {
+		s = s + board[i][j];
 	    }
-	    ans = ans + "\n";
+	    s = s + "\n";
 	}
-	return ans;
+	return s;
+    }
+
+    public void addWordH(String w,int row, int col){
+	int r = row, c = col;
+	//	while (board[r][c] == '.') {
+	    //System.out.println("yay");
+	    // if (r <= board[r].length - w.length()){
+	    //System.out.println("no");
+		//	if (c < board[r][c].){
+		    for (int i=0;i<w.length();i++){
+			board[r][c] = w.charAt(i);
+			c++;
+		    }
+		    //	}
+		    //	}
+      
+    }
+
+    public static void main(String[] args) {
+	WordSearch w = new WordSearch();
+	System.out.println(w);
+	w.addWordH("hello",3,5);
+	//w.addWordH("look",3,8);
+	w.addWordH("look",3,5);
+	//w.addWordH("hello",100,5);
+	//w.addWordH("hello",30,555);
+				
+	System.out.println(w);
     }
 }
