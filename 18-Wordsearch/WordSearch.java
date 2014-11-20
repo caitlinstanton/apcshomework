@@ -30,13 +30,16 @@ public class WordSearch{
 	return s;
     }
 
-    public void addWordH(String w,int row, int col){
+    public void addWordHForward(String w,int row, int col){
 	boolean possible;
 	int r = row, c = col;
-	if (r < = board.length && col <= board[1].length) {
+	//checks to make sure row and col can fit in board
+	if (r <= board.length && col <= board[1].length) {
 	    possible = true;
 	    if (possible == true) {
-		for (int i=0;i<w.length();i++){
+		for (int i = 0; i < w.length(); i++){
+		    //checks to see whether or not a word has already been printed there
+		    //stops if a letter is already at the selected position
 		    if (board[r][c+i] != '.'){
 			possible = false;
 			break;
@@ -44,21 +47,25 @@ public class WordSearch{
 		}
 	    }
 	    if (possible = true) {
-		for (int = 0; i < w.length() ; i++) {
-		    board[r][c=i] = w.charAt(i);
+		for (int i = 0; i < w.length() ; i++) {
+		    board[r][c+i] = w.charAt(i);
 		}
 	    }
 	}
     }
 
+    public void addWordHBackward(String w, int row, int col){
+	//just flips the word given and prints it using the addWordHForward() method
+	String newWord = new StringBuilder(w).reverse().toString();
+	addWordHForward(newWord, row, col);
+    }
+
     public static void main(String[] args) {
 	WordSearch w = new WordSearch();
 	System.out.println(w);
-	w.addWordH("hello",3,5);
-	//w.addWordH("look",3,8);
-	w.addWordH("look",3,5);
-	//w.addWordH("hello",100,5);
-	//w.addWordH("hello",30,555);
+	w.addWordHForward("hello",3,5);
+	w.addWordHForward("look",7,8);
+	w.addWordHBackward("world",10,4);
 				
 	System.out.println(w);
     }
