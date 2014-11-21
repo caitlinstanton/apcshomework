@@ -189,11 +189,43 @@ public class WordSearch{
 
     public void addDiagonalUR(String w, int row, int col) {
 	int r = row, c = col;
-	if (checkDiagonalDL(w, r, c) == true) {
+	if (checkDiagonalUR(w, r, c) == true) {
 	    for (int i = 0; i < w.length() ; i++) {
 		board[r][c] = w.charAt(i);
 		r--;
 		c++;
+	    }
+	}
+    }
+
+    public boolean checkDiagonalUL(String w, int row, int col) {
+	boolean possible = true;
+	int r = row, c = col;
+	if (row - w.length() > board.length) {
+	    return false;
+	}
+	if (col - w.length() > board[0].length) {
+	    return false;
+	}
+	for (int i = 0; i < w.length(); i++) {
+	    if (board[r][c] != '.') {
+		if (board[r][c] != w.charAt(i)) {
+		    return false;
+		}
+	    }
+	    r--;
+	    c--;
+	}
+	return true;
+    }
+
+    public void addDiagonalUL(String w, int row, int col) {
+	int r = row, c = col;
+	if (checkDiagonalUL(w, r, c) == true) {
+	    for (int i = 0; i < w.length() ; i++) {
+		board[r][c] = w.charAt(i);
+		r--;
+		c--;
 	    }
 	}
     }
@@ -219,6 +251,7 @@ public class WordSearch{
 	w.addDiagonalDR("awesome", 1, 4);
 	w.addDiagonalDL("fruit", 5, 15);
 	w.addDiagonalUR("wrath", 10, 15);
+	w.addDiagonalUL("song", 19, 15);
 	System.out.println(w);
     }
 }
