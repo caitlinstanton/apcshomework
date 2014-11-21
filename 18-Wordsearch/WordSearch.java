@@ -90,7 +90,8 @@ public class WordSearch{
 	int r = row, c = col;
 	if (checkVertical(w, r, c) == true) {
 	    for (int i = 0; i < w.length() ; i++) {
-		board[r+i][c] = w.charAt(i);
+		board[r][c] = w.charAt(i);
+		r++;
 	    }
 	}
      }
@@ -101,9 +102,105 @@ public class WordSearch{
 	addWordVForward(newWord, row, col);
     }
 
+    public boolean checkDiagonalDR(String w, int row, int col) {
+	boolean possible = true;
+	int r = row, c = col;
+	if (row + w.length() > board.length) {
+	    return false;
+	}
+	if (col + w.length() > board[0].length) {
+	    return false;
+	}
+	for (int i = 0; i < w.length(); i++) {
+	    if (board[r][c] != '.') {
+		if (board[r][c] != w.charAt(i)) {
+		    return false;
+		}
+	    }
+	    r++;
+	    c++;
+	}
+	return true;
+    }
+
+    public void addDiagonalDR(String w, int row, int col) {
+	int r = row, c = col;
+	if (checkDiagonalDR(w, r, c) == true) {
+	    for (int i = 0; i < w.length() ; i++) {
+		board[r][c] = w.charAt(i);
+		r++;
+		c++;
+	    }
+	}
+    }
+
+    public boolean checkDiagonalDL(String w, int row, int col) {
+	boolean possible = true;
+	int r = row, c = col;
+	if (row + w.length() > board.length) {
+	    return false;
+	}
+	if (col - w.length() > board[0].length) {
+	    return false;
+	}
+	for (int i = 0; i < w.length(); i++) {
+	    if (board[r][c] != '.') {
+		if (board[r][c] != w.charAt(i)) {
+		    return false;
+		}
+	    }
+	    r++;
+	    c--;
+	}
+	return true;
+    }
+
+    public void addDiagonalDL(String w, int row, int col) {
+	int r = row, c = col;
+	if (checkDiagonalDL(w, r, c) == true) {
+	    for (int i = 0; i < w.length() ; i++) {
+		board[r][c] = w.charAt(i);
+		r++;
+		c--;
+	    }
+	}
+    }
+
+     public boolean checkDiagonalUR(String w, int row, int col) {
+	boolean possible = true;
+	int r = row, c = col;
+	if (row - w.length() > board.length) {
+	    return false;
+	}
+	if (col + w.length() > board[0].length) {
+	    return false;
+	}
+	for (int i = 0; i < w.length(); i++) {
+	    if (board[r][c] != '.') {
+		if (board[r][c] != w.charAt(i)) {
+		    return false;
+		}
+	    }
+	    r--;
+	    c++;
+	}
+	return true;
+    }
+
+    public void addDiagonalUR(String w, int row, int col) {
+	int r = row, c = col;
+	if (checkDiagonalDL(w, r, c) == true) {
+	    for (int i = 0; i < w.length() ; i++) {
+		board[r][c] = w.charAt(i);
+		r--;
+		c++;
+	    }
+	}
+    }
+	
     public static void main(String[] args) {
 	WordSearch w = new WordSearch();
-	w.addWordHForward("hello",3,5);
+	//	w.addWordHForward("hello",3,5);
 	w.addWordHForward("hello",400,5);
 	w.addWordHForward("hello",3,655);
 
@@ -111,14 +208,17 @@ public class WordSearch{
 	w.addWordHBackward("world",100,4);
 	w.addWordHBackward("world",10,400);
 
-	w.addWordVForward("look",17,8);
+	w.addWordVForward("look",7,8);
 	w.addWordVForward("look",700,8);
 	w.addWordVForward("look",7,800);
 
 	w.addWordVBackward("great",15,4);
 	w.addWordVBackward("great",150,4);
 	w.addWordVBackward("great",10,04);
-				
+
+	w.addDiagonalDR("awesome", 1, 4);
+	w.addDiagonalDL("fruit", 5, 15);
+	w.addDiagonalUR("wrath", 10, 15);
 	System.out.println(w);
     }
 }
