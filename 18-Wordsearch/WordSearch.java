@@ -269,33 +269,46 @@ public class WordSearch{
 	int randRow = r.nextInt(board.length);
 	int randCol = r.nextInt(board[0].length);
 	int method = r.nextInt(8);
-
-	if (method == 0){
-	    addWordHForward(w, randRow, randCol);
-	    return(addWordHForward(w, randRow, randCol));
-	} else if (method == 1) {
-	    addWordHBackward(w, randRow, randCol);
-	    return(addWordHBackward(w, randRow, randCol));
-	} else if (method == 2) {
-	    addWordVForward(w, randRow, randCol);
-	    return(addWordVForward(w, randRow, randCol));
-	} else if (method == 3) {
-	    addWordVBackward(w, randRow, randCol);
-	    return(addWordVBackward(w, randRow, randCol));
-	} else if (method == 4) {
-	    addDiagonalDR(w, randRow, randCol);
-	    return(addDiagonalDR(w, randRow, randCol));
-	} else if (method == 5) {
-	    addDiagonalDL(w, randRow, randCol);
-	    return(addDiagonalDL(w, randRow, randCol));
-	} else if (method == 6) {
-	    addDiagonalUR(w, randRow, randCol);
-	    return(addDiagonalUR(w, randRow, randCol));
-	} else if (method == 7) {
-	    addDiagonalUL(w, randRow, randCol);
-	    return(addDiagonalUL(w, randRow, randCol));
+	Scanner sc = null;
+	try {
+	    sc = new Scanner(new File("README.md"));
+	} catch (Exception e) {
+	    System.out.println("Can't open");
+	    System.exit(0);
+	}
+	while (sc.hasNext()){
+	    String s = sc.next();
+	    if (method == 0){
+		addWordHForward(w, randRow, randCol);
+		return(addWordHForward(w, randRow, randCol));
+	    } else if (method == 1) {
+		addWordHBackward(w, randRow, randCol);
+		return(addWordHBackward(w, randRow, randCol));
+	    } else if (method == 2) {
+		addWordVForward(w, randRow, randCol);
+		return(addWordVForward(w, randRow, randCol));
+	    } else if (method == 3) {
+		addWordVBackward(w, randRow, randCol);
+		return(addWordVBackward(w, randRow, randCol));
+	    } else if (method == 4) {
+		addDiagonalDR(w, randRow, randCol);
+		return(addDiagonalDR(w, randRow, randCol));
+	    } else if (method == 5) {
+		addDiagonalDL(w, randRow, randCol);
+		return(addDiagonalDL(w, randRow, randCol));
+	    } else if (method == 6) {
+		addDiagonalUR(w, randRow, randCol);
+		return(addDiagonalUR(w, randRow, randCol));
+	    } else if (method == 7) {
+		addDiagonalUL(w, randRow, randCol);
+		return(addDiagonalUL(w, randRow, randCol));
+	    } else {
+		return false;
+	    }
 	}
     }
+
+
 
     public static void main(String[] args) {
 	WordSearch w = new WordSearch();
@@ -325,7 +338,7 @@ public class WordSearch{
 	System.out.println(w.addWord("dog"));
 	System.out.println(w.addWord("world"));
 	System.out.println(w.addWord("cool"));
-	w.fillBoard();
+	//w.fillBoard();
 	System.out.println(w);
     }
 }
