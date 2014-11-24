@@ -53,20 +53,24 @@ public class WordSearch{
 	return true;
     }
 
-    public void addWordHForward(String w,int row, int col){
+    public boolean addWordHForward(String w,int row, int col){
 	int r = row, c = col;
+	boolean possible = false;
 	if (checkHorizontal(w, r, c) == true) {
 	    for (int i = 0; i < w.length() ; i++) {
 		board[r][c] = w.charAt(i);
 		c++;
 	    }
+	    possible = true;
 	}
+	return possible;
     }
 
-    public void addWordHBackward(String w, int row, int col){
+    public boolean addWordHBackward(String w, int row, int col){
 	//just flips the word given and prints it using the addWordHForward() method
 	String newWord = new StringBuilder(w).reverse().toString();
 	addWordHForward(newWord, row, col);
+	return (addWordHForward(newWord, row, col));
     }
 
     public boolean checkVertical(String w, int row, int col) {
@@ -89,20 +93,24 @@ public class WordSearch{
 	return true;
     }
 
-     public void addWordVForward(String w,int row, int col){
+     public boolean addWordVForward(String w,int row, int col){
 	int r = row, c = col;
+	boolean possible = false;
 	if (checkVertical(w, r, c) == true) {
 	    for (int i = 0; i < w.length() ; i++) {
 		board[r][c] = w.charAt(i);
 		r++;
 	    }
+	    possible = true;
 	}
+	return possible;
      }
 
-    public void addWordVBackward(String w, int row, int col){
+    public boolean addWordVBackward(String w, int row, int col){
 	//just flips the word given and prints it using the addWordHForward() method
 	String newWord = new StringBuilder(w).reverse().toString();
 	addWordVForward(newWord, row, col);
+	return(addWordVForward(newWord, row, col));
     }
 
     public boolean checkDiagonalDR(String w, int row, int col) {
@@ -126,7 +134,8 @@ public class WordSearch{
 	return true;
     }
 
-    public void addDiagonalDR(String w, int row, int col) {
+    public boolean addDiagonalDR(String w, int row, int col) {
+    	boolean possible = false;
 	int r = row, c = col;
 	if (checkDiagonalDR(w, r, c) == true) {
 	    for (int i = 0; i < w.length() ; i++) {
@@ -134,7 +143,9 @@ public class WordSearch{
 		r++;
 		c++;
 	    }
+	    possible = true;
 	}
+	return possible;
     }
 
     public boolean checkDiagonalDL(String w, int row, int col) {
@@ -158,15 +169,18 @@ public class WordSearch{
 	return true;
     }
 
-    public void addDiagonalDL(String w, int row, int col) {
+    public boolean addDiagonalDL(String w, int row, int col) {
 	int r = row, c = col;
+	boolean possible = false;
 	if (checkDiagonalDL(w, r, c) == true) {
 	    for (int i = 0; i < w.length() ; i++) {
 		board[r][c] = w.charAt(i);
 		r++;
 		c--;
 	    }
+	    possible = true;
 	}
+	return possible;
     }
 
      public boolean checkDiagonalUR(String w, int row, int col) {
@@ -190,15 +204,18 @@ public class WordSearch{
 	return true;
     }
 
-    public void addDiagonalUR(String w, int row, int col) {
+    public boolean addDiagonalUR(String w, int row, int col) {
 	int r = row, c = col;
+	boolean possible = false;
 	if (checkDiagonalUR(w, r, c) == true) {
 	    for (int i = 0; i < w.length() ; i++) {
 		board[r][c] = w.charAt(i);
 		r--;
 		c++;
 	    }
+	    possible = true;
 	}
+	return possible;
     }
 
     public boolean checkDiagonalUL(String w, int row, int col) {
@@ -222,15 +239,18 @@ public class WordSearch{
 	return true;
     }
 
-    public void addDiagonalUL(String w, int row, int col) {
+    public boolean addDiagonalUL(String w, int row, int col) {
 	int r = row, c = col;
+	boolean possible = false;
 	if (checkDiagonalUL(w, r, c) == true) {
 	    for (int i = 0; i < w.length() ; i++) {
 		board[r][c] = w.charAt(i);
 		r--;
 		c--;
 	    }
+	    possible = true;
 	}
+	return possible;
     }
 
     public void fillBoard() {
@@ -246,32 +266,34 @@ public class WordSearch{
 
     public boolean addWord(String w){
 	Random r = new Random();
-	char[][] test = board;
 	int randRow = r.nextInt(board.length);
 	int randCol = r.nextInt(board[0].length);
 	int method = r.nextInt(8);
 
 	if (method == 0){
 	    addWordHForward(w, randRow, randCol);
+	    return(addWordHForward(w, randRow, randCol));
 	} else if (method == 1) {
 	    addWordHBackward(w, randRow, randCol);
+	    return(addWordHBackward(w, randRow, randCol));
 	} else if (method == 2) {
 	    addWordVForward(w, randRow, randCol);
+	    return(addWordVForward(w, randRow, randCol));
 	} else if (method == 3) {
 	    addWordVBackward(w, randRow, randCol);
+	    return(addWordVBackward(w, randRow, randCol));
 	} else if (method == 4) {
 	    addDiagonalDR(w, randRow, randCol);
+	    return(addDiagonalDR(w, randRow, randCol));
 	} else if (method == 5) {
 	    addDiagonalDL(w, randRow, randCol);
+	    return(addDiagonalDL(w, randRow, randCol));
 	} else if (method == 6) {
 	    addDiagonalUR(w, randRow, randCol);
+	    return(addDiagonalUR(w, randRow, randCol));
 	} else if (method == 7) {
 	    addDiagonalUL(w, randRow, randCol);
-	}
-	if (test.equals(board)) {
-	    return false;
-	} else {
-	    return true;
+	    return(addDiagonalUL(w, randRow, randCol));
 	}
     }
 
