@@ -269,9 +269,9 @@ public class WordSearch{
 	    addDiagonalUL(w, randRow, randCol);
 	}
 	if (test.equals(board)) {
-	    return true;
-	} else {
 	    return false;
+	} else {
+	    return true;
 	}
     }
 
