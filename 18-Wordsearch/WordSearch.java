@@ -1,3 +1,6 @@
+import java.util.*;
+import java.io.*;
+
 /**
  * Creates a word search puzzle
  *
@@ -229,10 +232,53 @@ public class WordSearch{
 	    }
 	}
     }
-	
+
+    public void fillBoard() {
+	Random r = new Random();
+	for (int i = 0; i < board.length; i++) {
+	    for (int c = 0; c < board[i].length; c++) {
+		if (board[i][c] == '.') {
+		    board[i][c] = (char)(r.nextInt(26) + 'A');
+		}
+	    }
+	}
+    }
+
+    public boolean addWord(String w){
+	Random r = new Random();
+	char[][] test = board;
+	int randRow = r.nextInt(board.length);
+	int randCol = r.nextInt(board[0].length);
+	int method = r.nextInt(8);
+
+	if (method == 0){
+	    addWordHForward(w, randRow, randCol);
+	} else if (method == 1) {
+	    addWordHBackward(w, randRow, randCol);
+	} else if (method == 2) {
+	    addWordVForward(w, randRow, randCol);
+	} else if (method == 3) {
+	    addWordVBackward(w, randRow, randCol);
+	} else if (method == 4) {
+	    addDiagonalDR(w, randRow, randCol);
+	} else if (method == 5) {
+	    addDiagonalDL(w, randRow, randCol);
+	} else if (method == 6) {
+	    addDiagonalUR(w, randRow, randCol);
+	} else if (method == 7) {
+	    addDiagonalUL(w, randRow, randCol);
+	}
+	if (test.equals(board)) {
+	    return true;
+	} else {
+	    return false;
+	}
+    }
+
     public static void main(String[] args) {
 	WordSearch w = new WordSearch();
-	//	w.addWordHForward("hello",3,5);
+	/*
+	w.addWordHForward("hello",3,5);
 	w.addWordHForward("hello",400,5);
 	w.addWordHForward("hello",3,655);
 
@@ -252,6 +298,12 @@ public class WordSearch{
 	w.addDiagonalDL("fruit", 5, 15);
 	w.addDiagonalUR("wrath", 10, 15);
 	w.addDiagonalUL("song", 19, 15);
+	System.out.println(w);
+	*/
+	System.out.println(w.addWord("dog"));
+	System.out.println(w.addWord("world"));
+	System.out.println(w.addWord("cool"));
+	w.fillBoard();
 	System.out.println(w);
     }
 }
