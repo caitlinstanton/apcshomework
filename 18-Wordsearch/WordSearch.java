@@ -1,3 +1,4 @@
+
 import java.util.*;
 import java.io.*;
 
@@ -8,6 +9,7 @@ import java.io.*;
 public class WordSearch{
 
     private char[][] board;
+    ArrayList<String> words = new ArrayList<String>();
 
     public WordSearch(int r, int c){
 	board = new char[r][c];
@@ -256,9 +258,9 @@ public class WordSearch{
     public void fillBoard() {
 	Random r = new Random();
 	for (int i = 0; i < board.length; i++) {
-	    for (int c = 0; c < board[i].length; c++) {
+	    for (int c = 0; c < board[0].length; c++) {
 		if (board[i][c] == '.') {
-		    board[i][c] = (char)(r.nextInt(26) + 'A');
+		    board[i][c] = (char)(r.nextInt(26) + 'a');
 		}
 	    }
 	}
@@ -270,45 +272,64 @@ public class WordSearch{
 	int randCol = r.nextInt(board[0].length);
 	int method = r.nextInt(8);
 	Scanner sc = null;
+       	boolean possible = false;
+	if (method == 0){
+	    addWordHForward(w, randRow, randCol);
+	    possible = true;
+	} else if (method == 1) {
+	    addWordHBackward(w, randRow, randCol);
+	    possible = true;
+	} else if (method == 2) {
+	    addWordVForward(w, randRow, randCol);
+	    possible = true;
+	} else if (method == 3) {
+	    addWordVBackward(w, randRow, randCol);
+	    possible = true;
+	} else if (method == 4) {
+	    addDiagonalDR(w, randRow, randCol);
+	    possible = true;
+	} else if (method == 5) {
+	    addDiagonalDL(w, randRow, randCol);
+	    possible = true;
+	} else if (method == 6) {
+	    addDiagonalUR(w, randRow, randCol);
+	    possible = true;
+	} else if (method == 7) {
+	    addDiagonalUL(w, randRow, randCol);
+	    possible = true;
+	} else {
+	    possible = false;
+	}
+    return possible;
+    }
+
+    public void makeList() {
+	Scanner sc = null;
 	try {
-	    sc = new Scanner(new File("README.md"));
+	    sc = new Scanner(new File("words.txt"));
 	} catch (Exception e) {
-	    System.out.println("Can't open");
+	    System.out.println("NOPE");
 	    System.exit(0);
 	}
 	while (sc.hasNext()){
 	    String s = sc.next();
-	    if (method == 0){
-		addWordHForward(w, randRow, randCol);
-		return(addWordHForward(w, randRow, randCol));
-	    } else if (method == 1) {
-		addWordHBackward(w, randRow, randCol);
-		return(addWordHBackward(w, randRow, randCol));
-	    } else if (method == 2) {
-		addWordVForward(w, randRow, randCol);
-		return(addWordVForward(w, randRow, randCol));
-	    } else if (method == 3) {
-		addWordVBackward(w, randRow, randCol);
-		return(addWordVBackward(w, randRow, randCol));
-	    } else if (method == 4) {
-		addDiagonalDR(w, randRow, randCol);
-		return(addDiagonalDR(w, randRow, randCol));
-	    } else if (method == 5) {
-		addDiagonalDL(w, randRow, randCol);
-		return(addDiagonalDL(w, randRow, randCol));
-	    } else if (method == 6) {
-		addDiagonalUR(w, randRow, randCol);
-		return(addDiagonalUR(w, randRow, randCol));
-	    } else if (method == 7) {
-		addDiagonalUL(w, randRow, randCol);
-		return(addDiagonalUL(w, randRow, randCol));
-	    } else {
-		return false;
-	    }
+	    words.add(s.toLowerCase());
 	}
     }
 
-
+    public void makeBoard() {
+	makeList();
+	for (int i = 0; i < words.size(); i++){
+	    String s = words.get(i);
+	    int tries = 0;
+	    boolean possible = false;
+	    while (tries < 8 && !possible) {
+		possible = addWord(s);
+		tries = tries + 1;
+	    }
+	}
+	fillBoard();
+    }
 
     public static void main(String[] args) {
 	WordSearch w = new WordSearch();
@@ -335,10 +356,8 @@ public class WordSearch{
 	w.addDiagonalUL("song", 19, 15);
 	System.out.println(w);
 	*/
-	System.out.println(w.addWord("dog"));
-	System.out.println(w.addWord("world"));
-	System.out.println(w.addWord("cool"));
-	//w.fillBoard();
+       	w.makeBoard();
+	//      	w.fillBoard();
 	System.out.println(w);
     }
 }
