@@ -1,4 +1,3 @@
-
 import java.util.*;
 import java.io.*;
 
@@ -9,9 +8,26 @@ import java.io.*;
 public class WordSearch{
 
     private char[][] board;
-    ArrayList<String> words = new ArrayList<String>();
-
+    private ArrayList<String> words;
+    private ArrayList<String> wordsInPuzzle;
+    private Random rnd;
+    
     public WordSearch(int r, int c){
+	rnd = new Random();
+	words = new ArrayList<String>();
+
+	Scanner sc = null;
+	try {
+	    sc = new Scanner(new File("words.txt"));
+	} catch (Exception e ) {
+	    System.out.println("Can't open wordlist");
+	    System.exit(0);
+	}
+
+	while (sc.hasNext()) {
+	    words.add(sc.next());
+	}
+	
 	board = new char[r][c];
 	for (int i = 0; i < board.length; i++) {
 	    for (int j = 0; j < board[i].length; j++) {
@@ -35,6 +51,47 @@ public class WordSearch{
 	return s;
     }
 
+    //Code from in-class
+    public boolean addWordHelper(String w,int row, int col,int deltaRow, int deltaCol){
+	int r = row, c = col;
+				
+	for (int i=0;i<w.length();i++){
+	    try {
+		if (board[r][c]!='.' && board[r][c]!=w.charAt(i)){
+		    return false;
+		}
+	    } catch ( Exception e){
+		return false;
+	    }
+	    r = r + deltaRow;
+	    c = c + deltaCol;
+	}
+
+	r = row;
+	c = col;
+
+	for (int i=0;i<w.length();i++){
+	    board[r][c] = w.charAt(i);
+	    r = r + deltaRow;
+	    c=c+deltaCol;
+	}
+	return true;
+    }
+
+    //Code from in-class
+    //Adds words at different orientations automatically
+     public boolean addWord(String w) {
+	int row = rnd.nextInt(board.length);
+	int col = rnd.nextInt(board[0].length);
+	int deltaRow = -1 + rnd.nextInt(3);
+	int deltaCol = -1 + rnd.nextInt(3);
+	if (deltaRow == deltaCol && deltaCol == 0)
+	    return false;
+	return addWordHelper(w,row,col,deltaRow,deltaCol);
+    }
+
+    //MY CODE
+    /*
     public boolean checkHorizontal(String w, int row, int col) {
 	boolean possible = true;
 	int r = row, c = col;
@@ -151,7 +208,7 @@ public class WordSearch{
     }
 
     public boolean checkDiagonalDL(String w, int row, int col) {
-	boolean possible = true;
+bg	boolean possible = true;
 	int r = row, c = col;
 	if (row + w.length() > board.length) {
 	    return false;
@@ -330,33 +387,60 @@ public class WordSearch{
 	}
 	fillBoard();
     }
+    */
+    //END OF MY CODE
+    
+    public void buildPuzzle(int numwords) {
+	numwords = 10;
+	/*
+	  loop
+	    take a random word out of wordlist
+	    try to add it to the puzzle
+	*/
+	wordsInPuzzle = new ArrayList<String>();
+	while (numwords > 0){
+	    int wordIndex = rnd.nextInt(words.size());
+	    String word = words.get(wordIndex);
+	    if (addWord(word)) {
+		numwords--;
+		words.remove(wordIndex);
+		wordInPuzzle.add(word);
+	    }
+	}
+	makeKey();
+	/*fill in rest of the board*/
+       	for (int i = 0; i < board.length; i++) {
+	    for (int j = 0; j < board[0].length; j++) {
+		if(board[i][j] == '.') {
+		    /* method 2
+		    String letters = "abcdefghijklmnopqrstuvwxyz";
+		    char letter = letters.charAt(rnd.nextInt(letters.length()));
+		    board[i][j] = letter;
+		    */
 
+		    //method 1
+		    int offset = rnd.nextInt(26);
+		    board[i][j] = (char)((int) 'a' + offset);
+		}
+	    }
+	}
+    }
+
+    public String getKey() {
+	String s = "";
+       	for (int i = 0; i < key.length; i++) {
+	    for (int j = 0; j < key[i].length; j++) {
+		s = s + key[i][j];
+	    }
+	    s = s + "\n";
+	}
+	return s;
+    }
+    
     public static void main(String[] args) {
 	WordSearch w = new WordSearch();
-	/*
-	w.addWordHForward("hello",3,5);
-	w.addWordHForward("hello",400,5);
-	w.addWordHForward("hello",3,655);
-
-	w.addWordHBackward("world",10,4);
-	w.addWordHBackward("world",100,4);
-	w.addWordHBackward("world",10,400);
-
-	w.addWordVForward("look",7,8);
-	w.addWordVForward("look",700,8);
-	w.addWordVForward("look",7,800);
-
-	w.addWordVBackward("great",15,4);
-	w.addWordVBackward("great",150,4);
-	w.addWordVBackward("great",10,04);
-
-	w.addDiagonalDR("awesome", 1, 4);
-	w.addDiagonalDL("fruit", 5, 15);
-	w.addDiagonalUR("wrath", 10, 15);
-	w.addDiagonalUL("song", 19, 15);
-	System.out.println(w);
-	*/
-       	w.makeBoard();
+	w.buildPuzzle(10);
+	// 	w.makeBoard();
 	//      	w.fillBoard();
 	System.out.println(w);
     }
