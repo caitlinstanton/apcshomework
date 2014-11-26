@@ -1,9 +1,9 @@
 public class Sarray {
-    private String[] data;
+    private int[] data;
     private int lastIndex;
 
     public Sarray(int n) {
-	data = new String[n];
+	data = new int[n];
 	lastIndex = 0;
     }
 
@@ -17,7 +17,7 @@ public class Sarray {
 
     public void expand() {
 	if (lastIndex >= data.length) {
-	    String[] ans = new String[data.length + 1];
+	    int[] ans = new int[data.length + 1];
 	    for (int i = 0; i < data.length; i++){
 		ans[i] = data[i];
 	    }
@@ -25,14 +25,14 @@ public class Sarray {
 	}
     }
     
-    public boolean add(String i) {
+    public boolean add(int i) {
 	expand();
 	data[data.length - 1] = i;
 	lastIndex = lastIndex + 1;
 	return true;
     }
 
-    public void add(String val, int index) {
+    public void add(int val, int index) {
 	    for (int i = lastIndex; i > 0; i--){
 		if (i > index) {
 		    data[i] = data[i - 1];
@@ -43,23 +43,24 @@ public class Sarray {
 	    }
     }
 
-    public String get(int index) {
+    public int get(int index) {
 	    return(data[index]);
     }
 
-    public String set(String val, int index) {
-	    String original = data[index];
+    public int set(int val, int index) {
+	    int original = data[index];
 	    data[index] = val;
 	    return original;
     }
 
     public int size() {
+	//	lastIndex = lastIndex + 1;
 	return lastIndex;
     }
 
-    public String remove(int index) {
-	    String original = data[index];
-	    String[] ans = new String[data.length - 1];
+    public int remove(int index) {
+	    int original = data[index];
+	    int[] ans = new int[data.length - 1];
 	    for (int i = 0; i < lastIndex; i++) {
 		if (i != index){
 		    ans[i] = data[i];
