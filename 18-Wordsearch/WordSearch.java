@@ -7,7 +7,7 @@ import java.io.*;
  */
 public class WordSearch{
 
-    private char[][] board;
+    private char[][] board, key;
     private ArrayList<String> words;
     private ArrayList<String> wordsInPuzzle;
     private Random rnd;
@@ -390,6 +390,15 @@ bg	boolean possible = true;
     */
     //END OF MY CODE
     
+    private void makeKey(){
+	key = new char[board.length][board[0].length];
+	for (int i = 0; i < board.length; i++) {
+	    for (int j = 0; j < board[0].length; j++) {
+		key[i][j] = board[i][j];
+	    }
+	}
+    }
+    
     public void buildPuzzle(int numwords) {
 	numwords = 10;
 	/*
@@ -404,7 +413,7 @@ bg	boolean possible = true;
 	    if (addWord(word)) {
 		numwords--;
 		words.remove(wordIndex);
-		wordInPuzzle.add(word);
+		wordsInPuzzle.add(word);
 	    }
 	}
 	makeKey();
@@ -426,6 +435,10 @@ bg	boolean possible = true;
 	}
     }
 
+    public String getWIP() {
+	return wordsInPuzzle.toString();
+    }
+
     public String getKey() {
 	String s = "";
        	for (int i = 0; i < key.length; i++) {
@@ -439,9 +452,14 @@ bg	boolean possible = true;
     
     public static void main(String[] args) {
 	WordSearch w = new WordSearch();
-	w.buildPuzzle(10);
-	// 	w.makeBoard();
+	//	w.buildPuzzle(10);
+	//w.makeBoard();
 	//      	w.fillBoard();
+	//	System.out.println(w);
 	System.out.println(w);
+	w.buildPuzzle(400);
+	System.out.println(w);
+	System.out.println(w.getWIP());
+	System.out.println(w.getKey());
     }
 }

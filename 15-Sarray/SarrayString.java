@@ -1,4 +1,4 @@
-public class Sarray {
+public class SarrayString {
     private String[] data;
     private int lastIndex;
 
