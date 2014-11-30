@@ -1,19 +1,24 @@
 public class OrderedSuperArray extends SarrayString {
 
-    public boolean add(String i) {
-	expand();
-	for (int k = 0; k < data.length(); k++) {
-	    for (int j = 0; j < data[i].length(); j++) {
-		if ((i.charAt(j)).compareTo(data[k].charAt(j)) > 0) {
-		    String[] ans = new String[data.length + 1];
-		    for (int m = 0; m < ans.length(); m++) {
-			if (m < j || m > j) {
-			    ans[m] = data[m];
-			}
-			if (m == j) {
-			    ans[m] = i;
-			}
-		    }
+    public boolean add(String word) {
+	if (size() == 0) {
+	    super.add(word);
+	} else if (word.compareTo(get(size() - 1)) > = 0) {
+	    add(word,size());
+	} else {
+	    for (int i = 0; i < size(); i++) {
+		if (word.compareTo(get(i)) <= 0) {
+		    add (word, i);
+		    break;
 		}
-		if ((i.charAt(j)).comapreTo(data[k].charAt(j))
+	    }
+	}
 	return true;
+    }
+
+    public String set (String word, int index) {
+	remove(index);
+	this.add(word);
+	return "";
+    }
+}

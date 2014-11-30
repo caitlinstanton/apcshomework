@@ -2,8 +2,8 @@ public class SarrayString {
     private String[] data;
     private int lastIndex;
 
-    public Sarray(int n) {
-	data = new String[n];
+    public SarrayString() {
+	data = new String[10];
 	lastIndex = 0;
     }
 
@@ -27,7 +27,7 @@ public class SarrayString {
     
     public boolean add(String i) {
 	expand();
-	data[data.length - 1] = i;
+	data[lastIndex + 1] = i;
 	lastIndex = lastIndex + 1;
 	return true;
     }
