@@ -19,9 +19,22 @@ public class OrderedSuperArray extends SarrayString {
 	return true;
     }
 
-    public String set (String word, int index) {
-	remove(index);
+    public void set (String word, int index) {
+        this.remove(index);
 	this.add(word);
-	return "";
     }
+    
+    public String remove(int index) {
+	String original = this.data[index];
+	String[] ans = new String[data.length - 1];
+	for (int i = 0; i < lastIndex; i++) {
+	    if (i != index){
+		ans[i] = this.data[i];
+	    }
+	}
+	data = ans;
+	lastIndex = lastIndex - 1;
+	return original;
+    }
+    
 }

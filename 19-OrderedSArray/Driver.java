@@ -2,7 +2,6 @@ public class Driver{
 
     public static void main(String[] args) {
 	OrderedSuperArray w = new OrderedSuperArray();
-	System.out.println(w);
 	w.add("apple");
 	w.add("banana");
 	w.add("zebra");
@@ -12,6 +11,9 @@ public class Driver{
 	w.add("xylophone");
 	w.add("mouse");
 	w.add("claustrophobia");
-	System.out.println(w);
+	//	System.out.println(w);
+	//	w.set("giraffe",1);
+	//System.out.println(w);
+	System.out.println(w.get(1));
     }
 }

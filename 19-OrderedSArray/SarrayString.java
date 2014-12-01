@@ -1,6 +1,6 @@
 public class SarrayString {
     public String[] data;
-    private int lastIndex;
+    public int lastIndex;
 
     public SarrayString() {
 	data = new String[5];
