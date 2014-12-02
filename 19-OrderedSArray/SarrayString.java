@@ -29,6 +29,10 @@ public class SarrayString {
 	}
     }
     
+    public String[] showList() {
+	return data;
+    }
+
     public boolean add(String i) {
 	expand();
 	data[lastIndex] = i;
@@ -64,10 +68,15 @@ public class SarrayString {
     public String remove(int index) {
 	String original = data[index];
 	String[] ans = new String[data.length - 1];
-	for (int i = 0; i < lastIndex; i++) {
-	    if (i != index){
-		ans[i] = data[i];
-	    }
+	int i = 0;
+	//places all elements before the requested index in the new array
+	for (i = i; i < index; i++) {
+	    ans[i] = data[i];
+	}
+	//skip requested index, essentially removing it from the array
+	//places all elements after the requested index in the array
+	for (i = i; i < ans.length; i++) {
+	    ans[i] = data[i+1];
 	}
 	data = ans;
 	lastIndex = lastIndex - 1;

@@ -11,9 +11,12 @@ public class Driver{
 	w.add("xylophone");
 	w.add("mouse");
 	w.add("claustrophobia");
-	//	System.out.println(w);
-	//	w.set("giraffe",1);
-	//System.out.println(w);
-	System.out.println(w.get(1));
+      	System.out.println(w);
+       	System.out.println(w.set("giraffe",1));
+	System.out.println(w);
+	System.out.println(w.set("fabulous",5));
+	System.out.println(w);
+	System.out.println(w.set("yak",25));
+	System.out.println(w);
     }
 }

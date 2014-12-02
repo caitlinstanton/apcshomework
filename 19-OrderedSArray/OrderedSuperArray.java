@@ -19,22 +19,14 @@ public class OrderedSuperArray extends SarrayString {
 	return true;
     }
 
-    public void set (String word, int index) {
-        this.remove(index);
-	this.add(word);
-    }
-    
-    public String remove(int index) {
-	String original = this.data[index];
-	String[] ans = new String[data.length - 1];
-	for (int i = 0; i < lastIndex; i++) {
-	    if (i != index){
-		ans[i] = this.data[i];
-	    }
+    public String set (String word, int index) {
+	String result;
+	if (index > super.showList().length) {
+	    result = "ARRAY OUT OF BOUNDS";
+	} else {
+	    result = "The original element was: " +  super.remove(index);
+	    add(word);
 	}
-	data = ans;
-	lastIndex = lastIndex - 1;
-	return original;
+	return result;
     }
-    
 }
