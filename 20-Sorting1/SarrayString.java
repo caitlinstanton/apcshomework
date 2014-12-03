@@ -84,7 +84,13 @@ public class SarrayString {
     }
 
     public void isort() {
-	for (int n = 0; n < data.length; n++) {
-	    if (
+		for (int n = 1; n < data.length; n++) {
+			String newVal = data[n];
+			int i;
+			for (i = n - 1; i > -1 && data[i].compareTo(newVal) > 0; i--) {
+				data[i+1] = data[i];
+			}
+			data[i+1] = newVal;
+		}
 	}
 }
