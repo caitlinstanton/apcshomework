@@ -82,4 +82,9 @@ public class SarrayString {
 	lastIndex = lastIndex - 1;
 	return original;
     }
+
+    public void isort() {
+	for (int n = 0; n < data.length; n++) {
+	    if (
+	}
 }
