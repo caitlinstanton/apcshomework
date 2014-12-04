@@ -21,7 +21,7 @@ public class DriverString{
 	m.add("treats");
 	m.add("ferret");
 	System.out.println(m.toString());
-	m.isort();
+	m.sSort();
 	System.out.println(m.toString());
     }
 }

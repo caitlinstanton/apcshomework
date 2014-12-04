@@ -83,14 +83,43 @@ public class SarrayString {
 	return original;
     }
 
-    public void isort() {
-		for (int n = 1; n < data.length; n++) {
-			String newVal = data[n];
-			int i;
-			for (i = n - 1; i > -1 && data[i].compareTo(newVal) > 0; i--) {
-				data[i+1] = data[i];
-			}
-			data[i+1] = newVal;
-		}
+    public void iSort() {
+	for (int n = 1; n < data.length; n++) {
+	    String newVal = data[n];
+	    int i;
+	    for (i = n - 1; i > -1 && data[i].compareTo(newVal) > 0; i--) {
+       	/* ANOTHER METHOD
+            for (i = n; i > 0 && newVal.compareTo(data[i-1]) >= 0; i--){
+                data[i] = data[i-1];
+	    }
+	*/
+		data[i+1] = data[i];
+	    }
+	    data[i+1] = newVal;
 	}
+    }
+
+    public void sSort() {
+	int i;
+	String temp;
+	String newVal;
+	for (i = 0; i < 2; i++) {
+	    temp = data[i];
+	    for (int n = i + 1; n < data.length; n++) {
+		newVal = data[n];
+		for (int c = i; c < data.length; c++) {
+		    int index;
+		    if (newVal.compareTo(data[c]) > 0) {
+			newVal = data[c];
+		        index = c;
+		    }
+		}
+		if (newVal.compareTo(temp) < 0) {
+		    data[index] = temp;
+		    data[i] = newVal;
+		    break;
+		}
+	    }
+	}
+    }
 }
