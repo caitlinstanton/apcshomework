@@ -1,11 +1,43 @@
+import java.util.*;
+import java.io.*;
+
 public class SarrayString {
-    private String[] data;
+    public String[] data;
     private int lastIndex;
 
     public SarrayString() {
-	data = new String[5];
 	lastIndex = 0;
+	Scanner scan = new Scanner(System.in);
+	System.out.println("Now you get create an array of strings:");
+	try {
+	    Thread.sleep(3000);
+	} catch (Exception e) {}
+	System.out.println("How many elements do you want to start with?");
+	int n = scan.nextInt();
+	if (n > 0) {
+	    data = new String[n];
+	} else {
+	    System.out.println("Invalid entry");
+	    System.exit(0);
+	}
+	System.out.println("Now it's time to add some string elements!");
+	try {
+	    Thread.sleep(3000);
+	} catch (Exception e) {}
+	int i = 0;
+	String val;
+	while (i < n) {
+		System.out.println("What string do you want to add?");
+		val = scan.next();
+		set(val,i);
+		i++;
     }
+	System.out.println("Here's your array");
+	System.out.println(toString());
+	System.out.println("Here's your sorted array");
+	sSort();
+	System.out.println(toString());
+	}
 
     public String toString() {
 	String ans = "";
@@ -100,26 +132,22 @@ public class SarrayString {
     }
 
     public void sSort() {
-	int i;
-	String temp;
-	String newVal;
-	for (i = 0; i < 2; i++) {
-	    temp = data[i];
-	    for (int n = i + 1; n < data.length; n++) {
-		newVal = data[n];
-		for (int c = i; c < data.length; c++) {
-		    int index;
-		    if (newVal.compareTo(data[c]) > 0) {
-			newVal = data[c];
-		        index = c;
-		    }
+		String s1;
+		String s2;
+		String minVal;
+		for (int i = 0; i < data.length; i++) {
+			int index = i;
+			minVal = data[i];
+			for (int n = i + 1; n < data.length; n++) {
+				if (minVal.compareTo(data[n]) > 0) {
+					minVal = data[n];
+					index = n;
+				}
+			}
+			s1 = data[i];
+			s2 = minVal;
+			data[i] = s2;
+			data[index] = s1;
 		}
-		if (newVal.compareTo(temp) < 0) {
-		    data[index] = temp;
-		    data[i] = newVal;
-		    break;
-		}
-	    }
 	}
-    }
 }
