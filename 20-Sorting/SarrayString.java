@@ -8,7 +8,7 @@ public class SarrayString {
     public SarrayString() {
 	lastIndex = 0;
 	Scanner scan = new Scanner(System.in);
-	System.out.println("Now you get create an array of strings:");
+	System.out.println("Now you get to create an array of strings:");
 	try {
 	    Thread.sleep(3000);
 	} catch (Exception e) {}
@@ -34,7 +34,7 @@ public class SarrayString {
     }
 	System.out.println("Here's your array");
 	System.out.println(toString());
-	System.out.println("Here's your sorted array");
+	System.out.println("Here's your array arranged using the selection sort method");
 	sSort();
 	System.out.println(toString());
 	}

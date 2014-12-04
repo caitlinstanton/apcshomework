@@ -2,6 +2,11 @@ public class DriverString{
     
     public static void main(String[] args) {
 	SarrayString m = new SarrayString();
+	//Now everything is run through SarrayString
+	//The constructor automatically runs the methods and allows you
+	//to create the array of size n, add elements using set, and order them
+	//then print the results
+	
 	/*
 	System.out.println(m.add("hello"));
 	System.out.println("The list is: " + m.toString());
