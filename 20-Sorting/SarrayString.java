@@ -7,6 +7,8 @@ public class SarrayString {
 
     public SarrayString() {
 	lastIndex = 0;
+	data = new String[5];
+	/*
 	Scanner scan = new Scanner(System.in);
 	System.out.println("Now you get to create an array of strings:");
 	try {
@@ -37,6 +39,7 @@ public class SarrayString {
 	System.out.println("Here's your array arranged using the selection sort method");
 	sSort();
 	System.out.println(toString());
+	*/
 	}
 
     public String toString() {
@@ -132,22 +135,53 @@ public class SarrayString {
     }
 
     public void sSort() {
-		String s1;
-		String s2;
-		String minVal;
-		for (int i = 0; i < data.length; i++) {
-			int index = i;
-			minVal = data[i];
-			for (int n = i + 1; n < data.length; n++) {
-				if (minVal.compareTo(data[n]) > 0) {
-					minVal = data[n];
-					index = n;
-				}
-			}
-			s1 = data[i];
-			s2 = minVal;
-			data[i] = s2;
-			data[index] = s1;
+	String s1;
+	String s2;
+	String minVal;
+	for (int i = 0; i < data.length; i++) {
+	    int index = i;
+	    minVal = data[i];
+	    for (int n = i + 1; n < data.length; n++) {
+		if (minVal.compareTo(data[n]) > 0) {
+		    minVal = data[n];
+		    index = n;
 		}
+	    }
+	    s1 = data[i];
+	    s2 = minVal;
+	    data[i] = s2;
+	    data[index] = s1;
 	}
+    }
+
+    public void bSort() {
+	for (int i = 0; i < data.length; i++) {
+	    String larger;
+	    String smaller;
+	    if (i == data.length - 1) {
+		System.out.println("YAYYAYAY");
+	        break;
+	    }
+	    if(data[i].compareTo(data[i+1]) > 0) {
+		System.out.println("WOOOP");
+	        larger = data[i];
+	        smaller = data[i+1];
+		data[i] = smaller;
+		data[i+1] = larger;
+		
+		System.out.println(larger);
+		System.out.println(smaller);
+		System.out.println(data[i]);
+		System.out.println(data[i+1]);
+	       
+	    }
+	    if (data[i+1].compareTo(data[i]) < 0) {
+		System.out.println("TOOOOT");
+	        larger = data[i+1];
+	        smaller = data[i];
+		data[i] = larger;
+		data[i+1] = smaller;
+	    }
+	}
+    }
 }
