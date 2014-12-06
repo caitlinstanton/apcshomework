@@ -155,33 +155,18 @@ public class SarrayString {
     }
 
     public void bSort() {
-	for (int i = 0; i < data.length; i++) {
 	    String larger;
 	    String smaller;
-	    if (i == data.length - 1) {
-		System.out.println("YAYYAYAY");
-	        break;
-	    }
-	    if(data[i].compareTo(data[i+1]) > 0) {
-		System.out.println("WOOOP");
-	        larger = data[i];
-	        smaller = data[i+1];
-		data[i] = smaller;
-		data[i+1] = larger;
-		
-		System.out.println(larger);
-		System.out.println(smaller);
-		System.out.println(data[i]);
-		System.out.println(data[i+1]);
-	       
-	    }
-	    if (data[i+1].compareTo(data[i]) < 0) {
-		System.out.println("TOOOOT");
-	        larger = data[i+1];
-	        smaller = data[i];
-		data[i] = larger;
-		data[i+1] = smaller;
-	    }
+		for (int i = 0; i < data.length - 1; i++) {
+			for (int n = 0; n < data.length - 1; n++) {
+				if(data[n].compareTo(data[n+1]) > 0) {
+					System.out.println("WOOOP");
+					larger = data[n];
+					smaller = data[n+1];
+					data[n] = smaller;
+					data[n+1] = larger;
+				}
+			}
+		}
 	}
-    }
 }
