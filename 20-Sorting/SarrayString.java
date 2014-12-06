@@ -8,7 +8,7 @@ public class SarrayString {
     public SarrayString() {
 	lastIndex = 0;
 	data = new String[5];
-	/*
+	
 	Scanner scan = new Scanner(System.in);
 	System.out.println("Now you get to create an array of strings:");
 	try {
@@ -22,7 +22,9 @@ public class SarrayString {
 	    System.out.println("Invalid entry");
 	    System.exit(0);
 	}
+	System.out.println("");
 	System.out.println("Now it's time to add some string elements!");
+	System.out.println("");
 	try {
 	    Thread.sleep(3000);
 	} catch (Exception e) {}
@@ -33,13 +35,45 @@ public class SarrayString {
 		val = scan.next();
 		set(val,i);
 		i++;
+		System.out.println("");
     }
 	System.out.println("Here's your array");
 	System.out.println(toString());
-	System.out.println("Here's your array arranged using the selection sort method");
-	sSort();
-	System.out.println(toString());
-	*/
+	System.out.println("");
+	System.out.println("Now it's time to sort it!");
+	try {
+	    Thread.sleep(3000);
+		System.out.println("");
+	} catch (Exception e) {}
+	System.out.println("Which method do you want to use: insertion, selection, or bubble?");
+	while (scan.hasNext()) {
+		String sort = scan.next();
+		if (sort.equals("insertion")) {
+			System.out.println("");
+			System.out.println("Here's your array arranged using the insertion sort method");
+			iSort();
+			System.out.println(toString());
+			break;
+		} else if (sort.equals("selection")) {
+			System.out.println("");
+			System.out.println("Here's your array arranged using the selection sort method");
+			sSort();
+			System.out.println(toString());
+			break;
+		} else if (sort.equals("bubble")) {
+			System.out.println("");
+			System.out.println("Here's your array arranged using the bubble sort method");
+			bSort();
+			System.out.println(toString());
+			break;
+		} else {
+			System.out.println("Invalid entry.");
+			try {
+				Thread.sleep(3000);
+			} catch (Exception e) {}
+			System.out.println("Which method do you want to use: insertion, selection, or bubble?");
+		}
+	}
 	}
 
     public String toString() {
@@ -160,7 +194,6 @@ public class SarrayString {
 		for (int i = 0; i < data.length - 1; i++) {
 			for (int n = 0; n < data.length - 1; n++) {
 				if(data[n].compareTo(data[n+1]) > 0) {
-					System.out.println("WOOOP");
 					larger = data[n];
 					smaller = data[n+1];
 					data[n] = smaller;

@@ -18,7 +18,7 @@ public class DriverString{
 	System.out.println("The value was: " + m.remove(2));
 	System.out.println("The list is: " + m.toString());
 	System.out.println("The size is: " + m.size());
-	*/
+	
 	m.add("zebra");
 	m.add("banana");
 	m.add("giraffe");
@@ -35,6 +35,6 @@ public class DriverString{
 	//SELECTION SORT-TIME: 0.069s
 
 	System.out.println(m.toString());
-	
+	*/
     }
 }
