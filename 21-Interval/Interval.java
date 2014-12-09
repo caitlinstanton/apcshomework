@@ -31,6 +31,12 @@ public class Interval {
 	return result;
     }
 
+    //compareTo routine
+    //compares two intervals
+    //one with lower low is less; if lows are equal, one with lower high is less
+    //equal = 0
+    //first interval less than = -1
+    //first interval greater than =  1
     public static void printStuff() {
 	System.out.println("Stuff");
     }
