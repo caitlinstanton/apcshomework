@@ -10,13 +10,13 @@ public class Interval implements Comparable{
 
     //static variables help by keeping track of something throughout the class
 
-    //If you want to craete your own Interval
+    //If you want to create your own Interval
     public Interval(int l, int h) {
 	low = l;
 	high = h;
     }
 
-    //If you want your own Interval created for you;
+    //If you want your own Interval created for you
     public Interval() {
 	int l = r.nextInt(100);
 	//add 1 to make sure that h will be greater than 0 (in case l is greater than 0)

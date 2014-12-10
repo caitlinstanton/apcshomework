@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Mage extends BaseChar {
+public class Mage extends BaseChar implements Comparable{
 
     Random thing = new Random();
     
