@@ -82,11 +82,44 @@ public class Interval {
 	}
 	System.out.println(Arrays.toString(a));
 	*/
+	
 	Interval a = new Interval();
 	Interval b = new Interval();
 	System.out.println(a.toString());
 	System.out.println(b.toString());
 	System.out.println(a.compareTo(b));
+
+	//String[] can be sorted because it has a built-in compareTo routine
+	//items can only be sorted with a compareTo method
+	String [] sa = {"hello", "frog", "absolute", "zoo", "bagel"};
+	System.out.println(Arrays.toString(sa));
+	Arrays.sort(sa);
+	System.out.println(Arrays.toString(sa));
+
+	int [] ia = {5, 3, 9, 17, -3, 40, 89, 12};
+	System.out.println(Arrays.toString(ia));
+	Arrays.sort(ia);
+	System.out.println(Arrays.toString(ia));
     }
 
+    //Interface: a specification that lists methods
+    //A class that implements an interface must define ALL of the methods in the interface
+    //You can only extend one class, but you can implement multiple interfaces
+    //Structure-
+    
+    /*
+    interface name {
+       method signature;
+       method signature;
+    }
+
+    where method signature is public/private, and has a name and (parameters)
+    */
+
+    //there is a built-in interface called comparable in java
+    /*
+      interface Comparable {
+         public int compareTo (object other);
+      }
+     */
 }
