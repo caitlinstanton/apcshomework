@@ -5,8 +5,10 @@ public class Interval {
 
     private int low;
     private int high;
-    private Random r = new Random();
+    private static Random r = new Random();
     private static int numIntervals = 0;
+
+    //static variables help by keeping track of something throughout the class
 
     //If you want to craete your own Interval
     public Interval(int l, int h) {
@@ -53,6 +55,14 @@ public class Interval {
 			result = 10;
 		}
 		return result;
+
+		/*
+		  if (this.low == other.low) {
+		     return this.high - other.high;
+		  } else {
+		     return this.low - other.low;
+		  }
+		 */
 	}
 	
     public static void printStuff() {
