@@ -31,19 +31,37 @@ public class Interval {
 	return result;
     }
 
-    //compareTo routine
-    //compares two intervals
-    //one with lower low is less; if lows are equal, one with lower high is less
-    //equal = 0
-    //first interval less than = -1
-    //first interval greater than =  1
+	public int getLow() {
+		return low;
+	}
+	
+	public int getHigh() {
+		return high;
+	}
+	
+	public int compareTo(Interval other) {
+		int result = 0;
+		int aLow = this.getLow();
+		int bLow = other.getLow();
+		int aHigh = this.getHigh();
+		int bHigh = other.getHigh();
+		if (aLow == bLow && aHigh == bHigh) {
+			result = 0;
+		} else if (aLow < bLow || aHigh < bHigh) {
+			result = -10;
+		} else if (aLow > bLow || aHigh > bHigh) {
+			result = 10;
+		}
+		return result;
+	}
+	
     public static void printStuff() {
 	System.out.println("Stuff");
     }
     
     public static void main (String[] args) {
 	
-	Interval ival = new Interval();
+	/*
 	ival.printStuff(); //normal calling of an instance
 	printStuff(); //since printStuff is static, we can call it without an instance
 	Interval.printStuff(); //we can also call it off a class
@@ -53,6 +71,12 @@ public class Interval {
 	    a[i]= new Interval();
 	}
 	System.out.println(Arrays.toString(a));
+	*/
+	Interval a = new Interval();
+	Interval b = new Interval();
+	System.out.println(a.toString());
+	System.out.println(b.toString());
+	System.out.println(a.compareTo(b));
     }
 
 }
