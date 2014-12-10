@@ -22,6 +22,11 @@ public class Interval implements Comparable{
 	//add 1 to make sure that h will be greater than 0 (in case l is greater than 0)
 	int h = l + 1 + r.nextInt(100);
 
+	/* ANOTHER WAY TO CREATE LOW/HIGH
+	  int h = r.nextInt(100);
+	  int l = 1 + r.nextInt(h);
+	*/
+
 	low = l;
 	high = h;
 	numIntervals = numIntervals + 1;
@@ -45,6 +50,8 @@ public class Interval implements Comparable{
 	    //casts other to the appropriate type and stores it in a local
 	    //variable for convenience; specifies Object as an Interval, o
 	    Interval o = (Interval)other;
+	    
+	    /* HOMEWORK CODE
 	    int result = 0;
 	    int aLow = this.getLow();
 	    int bLow = other.getLow();
@@ -58,16 +65,18 @@ public class Interval implements Comparable{
 			result = 10;
 	    }
 	    return result;
-
-	    /*
-	    if (this.low == other.low) {
-		return this.high - other.high;
-	    } else {
-		return this.low - other.low;
-	    }
 	    */
-	   
-	}
+	    
+	    if (this.low == o.low) {
+		return this.high - o.high;
+	    } else {
+		return this.low - o.low;
+	    }
+
+	    /* Checks the width of the Interval
+	    return (this.high - this.low) - (o.high - o.low);
+	    */
+	    }
     
     public static void printStuff() {
 	System.out.println("Stuff");
