@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Interval {
+public class Interval implements Comparable{
 
     private int low;
     private int high;
@@ -41,30 +41,34 @@ public class Interval {
 		return high;
 	}
 	
-	public int compareTo(Interval other) {
-		int result = 0;
-		int aLow = this.getLow();
-		int bLow = other.getLow();
-		int aHigh = this.getHigh();
-		int bHigh = other.getHigh();
-		if (aLow == bLow && aHigh == bHigh) {
-			result = 0;
-		} else if (aLow < bLow || aHigh < bHigh) {
+	public int compareTo(Object other) {
+	    //casts other to the appropriate type and stores it in a local
+	    //variable for convenience; specifies Object as an Interval, o
+	    Interval o = (Interval)other;
+	    int result = 0;
+	    int aLow = this.getLow();
+	    int bLow = other.getLow();
+	    int aHigh = this.getHigh();
+	    int bHigh = other.getHigh();
+	    if (aLow == bLow && aHigh == bHigh) {
+		result = 0;
+	    } else if (aLow < bLow || aHigh < bHigh) {
 			result = -10;
-		} else if (aLow > bLow || aHigh > bHigh) {
+	    } else if (aLow > bLow || aHigh > bHigh) {
 			result = 10;
-		}
-		return result;
+	    }
+	    return result;
 
-		/*
-		  if (this.low == other.low) {
-		     return this.high - other.high;
-		  } else {
-		     return this.low - other.low;
-		  }
-		 */
+	    /*
+	    if (this.low == other.low) {
+		return this.high - other.high;
+	    } else {
+		return this.low - other.low;
+	    }
+	    */
+	   
 	}
-	
+    
     public static void printStuff() {
 	System.out.println("Stuff");
     }
