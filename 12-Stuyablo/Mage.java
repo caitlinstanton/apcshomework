@@ -58,4 +58,13 @@ public class Mage extends BaseChar implements Comparable{
 	    return "";
 	}
     }	
+
+    public int compareTo (Object other) {
+	Mage o = (Mage) other;
+	if (this.name == o.low) {
+	    return this.high - o.high;
+	} else {
+	    return this.low - o.low;
+	}
+    }
 } 
