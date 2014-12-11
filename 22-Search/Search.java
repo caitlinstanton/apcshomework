@@ -17,7 +17,9 @@ public class Search implements Comparable{
     public Comparable lSearch(int num) {
 	for (int i = 0; i < ai.size(); i++) {
 	    if (ai.get(i).compareTo(num) == 0) {
-		
+		return num;
+	    }
+	}
     }
 
     public int bSearch() {
@@ -29,4 +31,7 @@ public class Search implements Comparable{
     }
 
     public void static main (String[] args) {
-	
+	Search s = new Search();
+	System.out.println(s.ai);
+    }
+}
