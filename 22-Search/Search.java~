@@ -1,0 +1,30 @@
+import java.util.*;
+import java.io.*;
+
+public class Search implements Comparable{
+
+    private ArrayList<Integer> ai;
+    ai = new ArrayList<Integer>();
+    private Random rnd = new Random();
+    
+    public Search() {
+	for (int i = 0; i < 20; i++) {
+	    int tmp = rnd.nextint(1000);
+	    ai.add(tmp);
+	}
+    }
+
+    public int lSearch() {
+
+    }
+
+    public int bSearch() {
+
+    }
+
+    public rbSearch() {
+
+    }
+
+    public void static main (String[] args) {
+	
