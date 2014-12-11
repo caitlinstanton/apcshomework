@@ -2,6 +2,8 @@ import java.util.*;
 import java.io.*;
 
 public class Interval implements Comparable{
+    //implement an interface in the superclass and it will extend to all
+    //subclasses.
 
     private int low;
     private int high;

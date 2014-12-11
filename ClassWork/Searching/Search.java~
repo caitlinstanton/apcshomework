@@ -1,0 +1,11 @@
+import java.util.*;
+import java.io.*;
+
+//send in string with name
+//easier to write
+Search(ArrayList<Character> A, String name)
+
+//send in instance of a class with a name set
+//uses compareTo
+Character c = new Character("fred");
+Search(ArrayList<Character> A, c)
