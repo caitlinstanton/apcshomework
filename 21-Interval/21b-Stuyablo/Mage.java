@@ -9,9 +9,33 @@ public class Mage extends BaseChar implements Comparable{
 	 super(h,m,a,d,s,ac,c,n,w);
     }
 	
+	/*
+	public int getVal(String a, Mage[] m) {
+		int val = 0;
+		int tmp = 0;
+		for (int i = 0; i < longest(m); i++) {
+			tmp = a.charAt(i) - b.charAt(i);
+			val = val + tmp
+		}
+		return val;
+	}
+	*/
+	
 	public int compareTo (Object other) {
-			Mage o = (Mage)other;
-			return other.length() - this.length();
+		Mage o = (Mage)other;
+		return this.toString().compareTo(o.toString());
+	}
+			
+	public String printList(Mage[] a) {
+		String ans = "";
+		for (int i = 0; i < a.length; i++) {
+			if (i == a.length - 1) {
+				ans = ans + a[i].toString();
+			} else {
+				ans = ans + a[i].toString() + ", ";
+			}
+		}
+		return ans;
 	}
 	
     public String spell(Monster other, String userInput){

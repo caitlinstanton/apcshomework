@@ -4,6 +4,14 @@ import java.io.*;
 
 public class Driver {
     public static void main(String[] args) {
+	
+	String[] sa = {Dasher, Dancer, Prancer, Vixen, Comet, Cupid, Donner, Blitzen};
+	for (int i = 0; i < sa.length; i++) {
+		name = sa[i];
+		Mage mage = new Mage(100, 100, 100, 100, 100, 100, 100, name, "staff");
+		mage.toString();
+	}
+	/*
 	Scanner in = new Scanner(System.in);
 	String name;
 	String enter; 
@@ -11,7 +19,7 @@ public class Driver {
 	int i; 
 
 	Random rand = new Random();
-
+	
 	System.out.println("Welcome, young traveler! What is your name?");
 	name = in.nextLine();
 
@@ -153,5 +161,6 @@ public class Driver {
 		}
 	    }
 	}
+	*/
     }
 }
