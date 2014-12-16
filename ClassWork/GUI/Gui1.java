@@ -3,6 +3,7 @@ import java.awt.*;
 
 public class Gui1 extends JFrame {
     
+    //Search: Java layout manager, Java swing components
     private Container pane;
     private JButton b1, b2;
     private JLabel l;
