@@ -46,6 +46,9 @@ public class Gui2 extends JFrame implements ActionListener {
 	if (e.getSource() == b1) {
 	    System.out.println("You clicked 'click me'");
 	    System.out.println("By the way, the text box has: " + text.getText());
+	    x = x + 5;
+	    y = y + 5;
+	    canvas.update(canvas.getGraphics());
 	} else if (e.getSource() == b2) {
 	    System.out.println("Shutting down");
 	    System.exit(0);
