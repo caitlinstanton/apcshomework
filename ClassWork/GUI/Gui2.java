@@ -26,7 +26,7 @@ public class Gui2 extends JFrame implements ActionListener {
 	    if (box.isSelected()) {
 		String s = text.getText();
 		s.toUpperCase();
-		
+		text.setText(s);
 	    }
 	}
     }
