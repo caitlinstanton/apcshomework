@@ -10,7 +10,18 @@ public class Gui2 extends JFrame implements ActionListener {
     private JLabel l;
     private JTextArea text;
     private JPanel canvas;
+    private int x = 0;
+    private int y = 0;
 
+    private class Canvas extends JPanel {
+
+	public void paintComponent(Graphics g) {
+	    super.paintComponent(g);
+	    g.setColor(Color.red);
+	    g.fillOval(x,y,30,30);
+	}
+    }
+    
     //INNER CLASS (class within a class)
     private class Key implements KeyListener {
 
@@ -25,7 +36,7 @@ public class Gui2 extends JFrame implements ActionListener {
 	public void keyTyped(KeyEvent e) {
 	    if (box.isSelected()) {
 		String s = text.getText();
-		s.toUpperCase();
+		s = s.toUpperCase();
 		text.setText(s);
 	    }
 	}
