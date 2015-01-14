@@ -1,19 +1,21 @@
+Code found at this repository: https://github.com/daisyb/ETR
+
 //Room.java
 Makes perfect sense to me. I understand that it is unifinished (you guys haven't
 written in the code for the mouse events methods), but it still creates a pretty
 good room environment. I understand that each item in the room is an instance of
-Stuff class, instances that are to be added to the inventory ArrayList. 
-The mouseClicked() method seems to do all it's supposed to. It checks to see if you've clicked
-the painting, then loads that image, if it exists. It also has checks to see if the
-other items have been clicked (then prints out something when they are). I realize
-those checks will probably do more later on.
+Stuff class, instances that are to be added to the inventory ArrayList (lines 21-24). 
+The mouseClicked() method seems to do all it's supposed to (lines 40-85). It checks to 
+if you've clicked the painting, then loads that image, if it exists (lines 46-50). It also has checks to 
+see if the other items have been clicked (then prints out something when they are) (lines 58-85). 
+I realize those checks will probably do more later on.
 Overall, this code looks good, considering its unfinished.
 
 //Popup.java
 The way I see the purpose of this class is that it's to open other windows once
 you click on a certain thing, like a painting or drawer. It's quite general,
 since you mentioned it's an abstract class, so it makes sense that there isn't
-a lot here. There's an empty BufferedImage so that you can set that image later.
+a lot here. There's an empty BufferedImage so that you can set that image later (line 16).
 The mouse events aren't written yet, but that might just be because the consequences
-differe based on the popup box.
-Looks good.
+differ based on the popup box.
+Looks good. :)
